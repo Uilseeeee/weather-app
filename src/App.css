@@ -1,0 +1,63 @@
+body {
+  max-width: 1600px;
+}
+
+.boardPosition {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.blackScreen {
+  height: 1200px;
+  width: 800px;
+  background-color: #0F141E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whiteScreen {
+  height: 1200px;
+  width: 800px;
+  background-color: #F3F4F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whiteScreenInfo {
+  width: 414px;
+  height: 828px;
+  top: 230px;
+  left: 193px;
+  gap: 0px;
+  border-radius: 48px 48px 48px 48px;
+  opacity: 0px;
+  background-color: #FFFFFFBF;
+}
+
+.blackScreenInfo {
+  width: 414px;
+  height: 832px;
+  top: 216px;
+  left: 193px;
+  gap: 0px;
+  border-radius: 48px 48px 48px 48px;
+  opacity: 0px;
+  background-color: #111827BF;
+}
+
+.searchInput {
+  width: Fixed (567px)px;
+  height: Hug (80px)px;
+  min-width: 320px;
+  top: 40px;
+  left: 40px;
+  padding: 16px 24px 16px 24px;
+  gap: 16px;
+  border-radius: 48px 48px 48px 48px;
+  opacity: 0px;
+  color: black;
+  background-color: white;
+}
