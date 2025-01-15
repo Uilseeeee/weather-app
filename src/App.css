@@ -1,14 +1,7 @@
-body {
-  max-width: 1600px;
-}
-
-.boardPosition {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-
-.blackScreen {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .blackScreen {
   height: 1200px;
   width: 800px;
   background-color: #0F141E;
@@ -17,14 +10,7 @@ body {
   justify-content: center;
 }
 
-.whiteScreen {
-  height: 1200px;
-  width: 800px;
-  background-color: #F3F4F6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .whiteScreenInfo {
   width: 414px;
@@ -60,4 +46,4 @@ body {
   opacity: 0px;
   color: black;
   background-color: white;
-}
+} */
