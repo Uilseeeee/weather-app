@@ -1,96 +1,66 @@
-
 import './App.css';
-import { useEffect, useState } from 'react';
-
-
+import Search from './components/Search';
+import LeftSide from './components/LeftSide';
+import RightSide from './components/RightSide';
+import Background from './components/Background';
+import { useEffect, useState } from "react"
 function App() {
-  const [countriesSearch, setCountriesSearch] = useState("");
-  const [countriesData, setCountriesData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [selectedCity, setSelectetCity] = useState("Ulaanbaatar");
+  const [weatherLoading, setWeatherLoading] = useState(false);
+  const [weather, setWeather] = useState({})
+  const weatherApiKey = "d2c018380b20428491521715251601"
+  const getWeather = async () => {
+    setWeatherLoading(true);
+    try {
+      const response = await fetch(
 
-  // api data insert //
-  const fetchData = () => {
-    fetch("https://countriesnow.space/api/v0.1/countries")
-      .then((response) => response.json()
-      ).then((result) => {
-        setCountriesData(result.data)
-        setFilteredData(result.data)
-      }).catch((error) => {
-        console.log("Error", error);
+        `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${selectedCity}`,
+        { method: "get", headers: { "Content-type": "application/json" } }
+      );
+      const result = await response.json();
+      console.log(result);
 
-      });
-
-
-
+      const weatherData = {
+        max_c: result.forecast.forecastday[0].day.maxtemp_c,
+        min_c: result.forecast.forecastday[0].day.mintemp_c,
+        condition: result.forecast.forecastday[0].day.condition.text,
+        date: result.forecast.forecastday[0].date
+      }
+      setWeather(weatherData)
+    } catch (error) {
+      console.log("Error", error);
+    } finally {
+      setWeatherLoading(false);
+    }
   };
-  const filterData = () => {
-    setFilteredData(
-      countriesData.filter((item) => {
-
-        console.log("item country", item.country);
-        console.log("countriesSearch", countriesSearch);
-
-        if (item.country
-          .toUpperCase()
-          .split("")
-          .includes(countriesSearch.toUpperCase())
-        )
-          return item;
-      })
-    );
-  }
   useEffect(() => {
-    filterData();
-    ;
-  }, [countriesSearch]);
-  // appending to inserted api data //
-  useEffect(() => {
-    console.log("useEffect data worked")
-
-    fetchData();
-  }, [])
-
-
-
-
-
-  const handleChange = (event) => {
-    setCountriesSearch(event.target.value);
-
-  };
-
-
+    getWeather()
+  }, [selectedCity])
   return (
- 
-    <div className='bg-black flex justify-center items-center h-[1200px] w-[1600px]'>
-     <div className="rounded-full bg-white h-[140px] w-[140px]"></div>
-      <img className='h-[100px] w-[100px]'
-        src='sun.png'
-        alt=''
-      />
-      <div>
-        <div>
-          <input onChange={handleChange} placeholder='Search country' className='h-[50px] w-[300px]' />
+
+
+    <div className="App">
+      <div className='w-screen h-screen flex'>
+        {/* <Background /> */}
+
+        <div className='w-1/2 h-screen bg-white flex flex-col justify-center align-center '>
+          {weatherLoading && <p>weather loading...</p>}
+          <Search setSelectetCity={setSelectetCity} />
+          <LeftSide weather={weather} />
         </div>
-        <div>
-          {filteredData.map((country, index) => {
-            return <div className="" key={index}>{country.country}</div>;
-          })}
+        <div className='w-1/2 h-screen bg-black'>
+          <RightSide weather={weather} />
         </div>
+
       </div>
 
 
-      <div className="">
-        <div className="">
-          <div className="">
-          </div>
-        </div>
-        <div className="">
-          <div className=""></div>
-        </div>
-      </div>
+
+
+
+
+
     </div>
-
   );
 }
 
