@@ -43,12 +43,12 @@ function App() {
       <div className='w-screen h-screen flex'>
         {/* <Background /> */}
 
-        <div className='w-1/2 h-screen bg-white flex flex-col justify-center align-center '>
+        <div className='w-1/2 h-screen bg-white flex flex-col'>
           {weatherLoading && <p>weather loading...</p>}
           <Search setSelectetCity={setSelectetCity} />
           <LeftSide weather={weather} />
         </div>
-        <div className='w-1/2 h-screen bg-black'>
+        <div className='w-1/2 h-screen bg-black '>
           <RightSide weather={weather} />
         </div>
 

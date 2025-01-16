@@ -43,7 +43,7 @@ const Search = (props) => {
     return (
         <div>
             <div>
-                <input disabled={loading} onChange={handleChange} placeholder='Search country' value={countriesSearch} />
+                <input className='h-' disabled={loading} onChange={handleChange} placeholder='Search country' value={countriesSearch} />
             </div>
             <div>
                 {countriesSearch.length > 0 &&
