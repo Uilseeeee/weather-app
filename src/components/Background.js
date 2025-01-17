@@ -8,6 +8,7 @@ const Background = (props) => {
                     src={"./image/leftArrow.svg"}
                     style={{ width: "43px", height: "86px" }}
                     className="z-30"
+                    alt="l"
                 />
                 <img
                     src={"./image/rightArrow.png"}

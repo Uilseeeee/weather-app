@@ -4,6 +4,7 @@ import LeftSide from './components/LeftSide';
 import RightSide from './components/RightSide';
 import Background from './components/Background';
 import { useEffect, useState } from "react"
+
 function App() {
   const [selectedCity, setSelectetCity] = useState("Ulaanbaatar");
   const [weatherLoading, setWeatherLoading] = useState(false);
@@ -24,7 +25,8 @@ function App() {
         max_c: result.forecast.forecastday[0].day.maxtemp_c,
         min_c: result.forecast.forecastday[0].day.mintemp_c,
         condition: result.forecast.forecastday[0].day.condition.text,
-        date: result.forecast.forecastday[0].date
+        date: result.forecast.forecastday[0].date,
+        city: result.location.name
       }
       setWeather(weatherData)
     } catch (error) {
@@ -41,14 +43,18 @@ function App() {
 
     <div className="App">
       <div className='w-screen h-screen flex'>
-        {/* <Background /> */}
+        <Background />
 
-        <div className='w-1/2 h-screen bg-white flex flex-col'>
+        <div className='w-1/2 h-screen bg-[#F3F4F6] flex flex-col'>
           {weatherLoading && <p>weather loading...</p>}
-          <Search setSelectetCity={setSelectetCity} />
+          <div className='z-50'>
+            <Search setSelectetCity={setSelectetCity} />
+          </div>
+
           <LeftSide weather={weather} />
         </div>
-        <div className='w-1/2 h-screen bg-black '>
+        <div className='w-1/2 h-screen bg-[#0F141E] 
+        '>
           <RightSide weather={weather} />
         </div>
 

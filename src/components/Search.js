@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { citiesFilter } from "../utils/citiesFilter";
+import SearchIcon from '../icons/Search-Icon'
 
 const Search = (props) => {
     const { setSelectetCity } = props;
@@ -42,8 +43,10 @@ const Search = (props) => {
     }
     return (
         <div>
-            <div>
-                <input className='h-' disabled={loading} onChange={handleChange} placeholder='Search country' value={countriesSearch} />
+
+            <div className='h-12 w-80 my-4 mx-6 bg-white rounded-full flex justify-center items-center justify-around'>
+                <SearchIcon />
+                <input className='w-[250px] text-xl' disabled={loading} onChange={handleChange} placeholder='Search' value={countriesSearch} />
             </div>
             <div>
                 {countriesSearch.length > 0 &&
