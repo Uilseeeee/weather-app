@@ -51,7 +51,7 @@ function App() {
             <Search setSelectetCity={setSelectetCity} />
           </div>
 
-          <LeftSide weather={weather} />
+          <LeftSide  weather={weather} />
         </div>
         <div className='w-1/2 h-screen bg-[#0F141E] 
         '>
