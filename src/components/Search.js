@@ -44,7 +44,7 @@ const Search = (props) => {
     return (
         <div>
 
-            <div className='h-12 w-80 my-4 mx-6 bg-white rounded-full flex justify-center items-center justify-around z-50'>
+            <div className='h-12 w-80 my-4 mx-6 bg-white rounded-full flex justify-center items-center  z-50'>
                 <SearchIcon />
                 <input className='w-[250px] text-xl outline-none' disabled={loading} onChange={handleChange} placeholder='Search' value={countriesSearch} />
             </div>

@@ -1,17 +1,18 @@
 import React from "react";
 
+
 const Background = (props) => {
     return (
         <div className="absolute inset-0  flex items-center justify-center overflow-hidden underline">
             <div className="absolute w-[140px] h-[140px] border  border-customBorder rounded-full bg-customWhite z-20 flex space-x-4 justify-center items-center">
                 <img
-                    src={"./image/leftArrow.svg"}
+                    src={"../image/leftArrow.svg"}
                     style={{ width: "43px", height: "86px" }}
                     className="z-30"
                     alt="l"
                 />
-                <img
-                    src={"./image/rightArrow.png"}
+                <img alt=""
+                    src={"../image/rightArrow.png"}
                     style={{ width: "43px", height: "86px" }}
                     className="z-30"
                 />

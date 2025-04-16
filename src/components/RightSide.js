@@ -8,7 +8,7 @@ const RightSide = (props) => {
       <div className='text-white'>
       <div className='text-[#9CA3AF] text-[18px] font-[manrope] mx-[25px]'>{weather.date}</div>
       <div className='text-[#FFF] text-[48px] font-extrabold justify-self-center'>{weather.city}</div>
-      <img src='/image/moon.png'
+      <img alt='moon'  src='/image/moon.png'
       />
       <div className='text-5xl text-[99px] font-extrabold bg-gradient-to-b from-[#F9FAFB] to=[#F9FAFB] bg-clip-text text-transparent'>{weather.min_c}°</div>
       
