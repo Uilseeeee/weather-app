@@ -6,7 +6,7 @@ import Background from "./components/Background";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [selectedCity, setSelectetCity] = useState("Ulaanbaatar");
+  const [selectedCity, setSelectedCity] = useState("Ulaanbaatar");
   const [weatherLoading, setWeatherLoading] = useState(false);
   const [weather, setWeather] = useState({});
   const weatherApiKey = "d2c018380b20428491521715251601";
@@ -48,7 +48,7 @@ function App() {
           <LeftSide weather={weather} />
         </div>
         <div className='z-50 absolute mx-[36%]'>
-            <Search setSelectetCity={setSelectetCity} />
+            <Search setSelectedCity={setSelectedCity} />
           </div>
         <div
           className="w-1/2 h-screen bg-[#0F141E]

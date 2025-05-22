@@ -4,11 +4,12 @@ import { citiesFilter } from "../utils/citiesFilter";
 import SearchIcon from '../icons/Search-Icon'
 
 const Search = (props) => {
-    const { setSelectetCity } = props;
+    const { setSelectedCity } = props;
     const [countriesSearch, setCountriesSearch] = useState("");
     const [filteredData, setfilteredData] = useState([]);
     const [cities, setCities] = useState([])
     const [loading, setLoading] = useState(false)
+  
 
     async function fetchData() {
         try {
@@ -39,7 +40,8 @@ const Search = (props) => {
         );
     };
     const handleCityClick = (city) => {
-        setSelectetCity(city.split(",")[0]);
+        setSelectedCity(city.split(",")[0]);
+       setCountriesSearch("");
     }
     return (
         <div>
